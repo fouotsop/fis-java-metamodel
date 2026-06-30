@@ -1,0 +1,8 @@
+{
+  "Content-Security-Policy": 30,
+  "Strict-Transport-Security": 25,
+  "X-Frame-Options": 15,
+  "X-Content-Type-Options": 10,
+  "Referrer-Policy": 10,
+  "Permissions-Policy": 10
+}
