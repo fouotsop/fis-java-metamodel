@@ -3,6 +3,7 @@
 	<name>fewcam</name>
 	<comment></comment>
 	<projects>
+		<project>efis</project>
 		<project>ecorefewcam</project>
 	</projects>
 	<buildSpec>

@@ -31,6 +31,7 @@ class DomainAgeSensor:
             # Calculate age
             today = datetime.now()
             age = today.replace(tzinfo=timezone.utc) - created
+            age_years = round(age.days / 365.25, 2)
 
             # Return structured data
             return {
