@@ -38,17 +38,17 @@ output are not part of the application source.
 The data extractor exposes one Flask blueprint. Each route delegates to a
 sensor:
 
-| Area | Sensor | External dependency |
-| --- | --- | --- |
-| Security | Security headers | Target website |
-| Security | SSL certificate health | SSL Labs API |
-| Reputation | Domain age | WHOIS |
-| Reputation | Domain authority | Configured domain-authority API |
-| Reputation | Social-media presence | Configured social-links API |
-| Transparency | Contact information | WHOIS |
-| Transparency | Privacy, refund, and terms policies | Target website, Playwright, spaCy |
-| Transparency | ToS;DR policy rating | ToS;DR API |
-| UX | Performance, accessibility, SEO, and best practices | Google PageSpeed Insights API |
+| Area         | Sensor                                              | External dependency               |
+| ------------ | --------------------------------------------------- | --------------------------------- |
+| Security     | Security headers                                    | Target website                    |
+| Security     | SSL certificate health                              | SSL Labs API                      |
+| Reputation   | Domain age                                          | WHOIS                             |
+| Reputation   | Domain authority                                    | Configured domain-authority API   |
+| Reputation   | Social-media presence                               | Configured social-links API       |
+| Transparency | Contact information                                 | WHOIS                             |
+| Transparency | Privacy, refund, and terms policies                 | Target website, Playwright, spaCy |
+| Transparency | ToS;DR policy rating                                | ToS;DR API                        |
+| UX           | Performance, accessibility, SEO, and best practices | Google PageSpeed Insights API     |
 
 The Java service receives linguistic variables and fuzzy rules, initializes an
 EFIS model, validates the model graph with Eclipse OCL, runs inference, and
@@ -93,16 +93,16 @@ Configuration is read from environment variables. The default headers file is
 `headers.json`; set `HEADERS_FILE` when running from a different working
 directory or with a different rules file.
 
-| Variable | Used by | Purpose |
-| --- | --- | --- |
-| `HEADERS_FILE` | Security headers | Path to weighted header rules |
-| `X_API_KEY` | Social-media presence | API key for the social-links service |
-| `SOCIAL_MEDIA_API_URL` | Social-media presence | Base URL of the social-links API |
-| `PAGE_SPEED_API_KEY` | UX design | Google PageSpeed Insights API key |
-| `PAGE_SPEED_API_URL` | UX design | PageSpeed API endpoint |
-| `DOMAIN_AUTHORITY_API_URL` | Domain authority | Domain-authority API endpoint |
-| `TOSDR_DEV_URL` | ToS;DR in development | ToS;DR API base URL |
-| `TOSDR_PROD_URL` | ToS;DR outside development | ToS;DR API base URL |
+| Variable                   | Used by                    | Purpose                              |
+| -------------------------- | -------------------------- | ------------------------------------ |
+| `HEADERS_FILE`             | Security headers           | Path to weighted header rules        |
+| `X_API_KEY`                | Social-media presence      | API key for the social-links service |
+| `SOCIAL_MEDIA_API_URL`     | Social-media presence      | Base URL of the social-links API     |
+| `PAGE_SPEED_API_KEY`       | UX design                  | Google PageSpeed Insights API key    |
+| `PAGE_SPEED_API_URL`       | UX design                  | PageSpeed API endpoint               |
+| `DOMAIN_AUTHORITY_API_URL` | Domain authority           | Domain-authority API endpoint        |
+| `TOSDR_DEV_URL`            | ToS;DR in development      | ToS;DR API base URL                  |
+| `TOSDR_PROD_URL`           | ToS;DR outside development | ToS;DR API base URL                  |
 
 Do not commit API keys. Export them in the shell or provide them through a
 local, untracked environment file.
@@ -125,17 +125,17 @@ profiles. The default Flask development server is normally available at
 All endpoints are `GET` endpoints and return JSON. Website URLs may be supplied
 with or without `http://` or `https://` where noted.
 
-| Endpoint | Query parameter | Result |
-| --- | --- | --- |
-| `/sense-security-headers` | `url` | Weighted security-header score |
-| `/sense-ssl-certificate-health` | `url` | SSL/TLS endpoint scores |
-| `/sense-policies` | `url` | Extracted policy-page text by category |
-| `/sense-social-media-presence` | `url` | Matching social platforms and percentage |
-| `/sense-domain-age` | `domain` | WHOIS creation date and domain age |
-| `/sense-contact-information` | `domain` | WHOIS contact fields and completeness score |
-| `/sense-ux-design` | `url` | PageSpeed performance, accessibility, SEO, and best-practices scores |
-| `/sense-tosdr-policies` | `service_name` | ToS;DR service policy rating |
-| `/sense-domain-authority` | `domain` | Domain-authority API response |
+| Endpoint                        | Query parameter | Result                                                               |
+| ------------------------------- | --------------- | -------------------------------------------------------------------- |
+| `/sense-security-headers`       | `url`           | Weighted security-header score                                       |
+| `/sense-ssl-certificate-health` | `url`           | SSL/TLS endpoint scores                                              |
+| `/sense-policies`               | `url`           | Extracted policy-page text by category                               |
+| `/sense-social-media-presence`  | `url`           | Matching social platforms and percentage                             |
+| `/sense-domain-age`             | `domain`        | WHOIS creation date and domain age                                   |
+| `/sense-contact-information`    | `domain`        | WHOIS contact fields and completeness score                          |
+| `/sense-ux-design`              | `url`           | PageSpeed performance, accessibility, SEO, and best-practices scores |
+| `/sense-tosdr-policies`         | `service_name`  | ToS;DR service policy rating                                         |
+| `/sense-domain-authority`       | `domain`        | Domain-authority API response                                        |
 
 Examples:
 
@@ -242,5 +242,4 @@ fail rather than returning a score.
 
 ## License
 
-No license file is currently included. Add a license before distributing or
-publishing the project.
+This project is licensed under the GNU GENERAL PUBLIC LICENSE
